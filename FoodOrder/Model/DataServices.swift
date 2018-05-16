@@ -8,6 +8,8 @@
 
 import UIKit
 import FBSDKLoginKit
+import CoreData
+
 class DataServices {
     
     static let shared: DataServices = DataServices()
@@ -56,5 +58,43 @@ class DataServices {
         let decoded = UserDefaults.standard.object(forKey: "user") as! Data
         guard let user = NSKeyedUnarchiver.unarchiveObject(with: decoded) as? User else { return }
         complete(user)
+    }
+    
+    var fetchedResultsController: NSFetchedResultsController<Meal> {
+        if _fetchedResultsController != nil {
+            return _fetchedResultsController!
+        }
+        
+        let fetchRequest: NSFetchRequest<Meal> = Meal.fetchRequest()
+        
+        fetchRequest.fetchBatchSize = 20
+        
+        let nameMeal = NSSortDescriptor(key: "name", ascending: false)
+        fetchRequest.sortDescriptors = [nameMeal]
+        
+        
+        _fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: AppDelegate.context, sectionNameKeyPath: nil, cacheName: "Master")
+        
+        do {
+            try _fetchedResultsController!.performFetch()
+        } catch {
+            
+            let nserror = error as NSError
+            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+        }
+        
+        return _fetchedResultsController!
+    }
+    private var _fetchedResultsController: NSFetchedResultsController<Meal>?
+    
+    func saveContext() {
+        guard let context = _fetchedResultsController?.managedObjectContext else { return }
+        do {
+            try context.save()
+        } catch {
+            
+            let nserror = error as NSError
+            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+        }
     }
 }

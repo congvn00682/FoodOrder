@@ -15,7 +15,7 @@
 		4D6762E720A6B07E00E6EBFC /* DataServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6762E620A6B07E00E6EBFC /* DataServices.swift */; };
 		4D6762E920A6B08C00E6EBFC /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6762E820A6B08C00E6EBFC /* RatingControl.swift */; };
 		4D6762EB20A6B0C100E6EBFC /* MealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6762EA20A6B0C100E6EBFC /* MealTableViewCell.swift */; };
-		4D6762ED20A6B0D300E6EBFC /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6762EC20A6B0D300E6EBFC /* MasterViewController.swift */; };
+		4D6762ED20A6B0D300E6EBFC /* MealMasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6762EC20A6B0D300E6EBFC /* MealMasterViewController.swift */; };
 		4D6762EF20A6B0E900E6EBFC /* MealDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6762EE20A6B0E900E6EBFC /* MealDetailViewController.swift */; };
 		7231700C890BDF325C162809 /* Pods_FoodOrder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8964C3A93C1A91F3C0C48B5 /* Pods_FoodOrder.framework */; };
 		799BB98F20AA7799002CE58B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799BB98E20AA7799002CE58B /* User.swift */; };
@@ -35,7 +35,7 @@
 		4D6762E620A6B07E00E6EBFC /* DataServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataServices.swift; sourceTree = "<group>"; };
 		4D6762E820A6B08C00E6EBFC /* RatingControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
 		4D6762EA20A6B0C100E6EBFC /* MealTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewCell.swift; sourceTree = "<group>"; };
-		4D6762EC20A6B0D300E6EBFC /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		4D6762EC20A6B0D300E6EBFC /* MealMasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealMasterViewController.swift; sourceTree = "<group>"; };
 		4D6762EE20A6B0E900E6EBFC /* MealDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailViewController.swift; sourceTree = "<group>"; };
 		7900A9E720A73375003F2F83 /* FoodOrder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FoodOrder.entitlements; sourceTree = "<group>"; };
 		799BB98E20AA7799002CE58B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -95,7 +95,7 @@
 		4D6762E320A6B05C00E6EBFC /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				4D6762EC20A6B0D300E6EBFC /* MasterViewController.swift */,
+				4D6762EC20A6B0D300E6EBFC /* MealMasterViewController.swift */,
 				4D6762EE20A6B0E900E6EBFC /* MealDetailViewController.swift */,
 				79AEE2A020A91BB300B1D2BA /* LoginFacebookViewController.swift */,
 				79CF7BB720AAC8A700EC419E /* RegisterViewController.swift */,
@@ -270,7 +270,7 @@
 				79CF7BB820AAC8A700EC419E /* RegisterViewController.swift in Sources */,
 				4D6762E720A6B07E00E6EBFC /* DataServices.swift in Sources */,
 				79AEE2A120A91BB300B1D2BA /* LoginFacebookViewController.swift in Sources */,
-				4D6762ED20A6B0D300E6EBFC /* MasterViewController.swift in Sources */,
+				4D6762ED20A6B0D300E6EBFC /* MealMasterViewController.swift in Sources */,
 				4D6762CC20A6B03400E6EBFC /* AppDelegate.swift in Sources */,
 				799BB98F20AA7799002CE58B /* User.swift in Sources */,
 				4D6762D420A6B03400E6EBFC /* FoodOrder.xcdatamodeld in Sources */,

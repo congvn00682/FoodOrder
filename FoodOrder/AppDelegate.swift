@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let user = NSKeyedUnarchiver.unarchiveObject(with: data) as? User {
             print(user.name, user.email)
             let confirmStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let showConfirmVC = confirmStoryboard.instantiateViewController(withIdentifier: "MasterViewController") as! MasterViewController
+            let showConfirmVC = confirmStoryboard.instantiateViewController(withIdentifier: "MealMasterViewController") as! MealMasterViewController
             let navigationController = UINavigationController(rootViewController: showConfirmVC)
             window = UIWindow(frame: UIScreen.main.bounds)
             window?.rootViewController = navigationController
