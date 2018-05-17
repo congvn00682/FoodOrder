@@ -234,7 +234,7 @@
         <scene sceneID="yrq-5W-5CU">
             <objects>
                 <tableViewController storyboardIdentifier="MealMasterViewController" id="Jjj-QD-806" customClass="MealMasterViewController" customModule="FoodOrder" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="dbu-pe-BbO">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="dbu-pe-BbO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -242,13 +242,16 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="Jjj-QD-806" id="6lA-B2-ZGB"/>
+                            </connections>
                         </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="100" id="VfG-YW-JId" customClass="MealTableViewCell" customModule="FoodOrder" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="72" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VfG-YW-JId" id="VkB-V2-Xl8">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="k9Q-M9-0gt">
@@ -304,6 +307,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="searchMeal" destination="dAp-n1-wEc" id="LNu-c8-0I5"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b52-8E-VoV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -498,13 +504,13 @@
                                                                 <rect key="frame" x="0.0" y="173.5" width="343" height="87"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Verify:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ADc-5u-e1T">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pt4-7u-OZ5">
-                                                                        <rect key="frame" x="0.0" y="44" width="343" height="43"/>
+                                                                        <rect key="frame" x="0.0" y="43.5" width="343" height="43.5"/>
                                                                         <nil key="textColor"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits"/>
@@ -512,7 +518,6 @@
                                                                 </subviews>
                                                                 <constraints>
                                                                     <constraint firstItem="ADc-5u-e1T" firstAttribute="height" secondItem="Tmw-mq-z9w" secondAttribute="height" multiplier="1/2" id="5IG-td-nSB"/>
-                                                                    <constraint firstItem="pt4-7u-OZ5" firstAttribute="height" secondItem="ADc-5u-e1T" secondAttribute="height" id="Mh1-YT-rf4"/>
                                                                     <constraint firstItem="pt4-7u-OZ5" firstAttribute="width" secondItem="ADc-5u-e1T" secondAttribute="width" id="ZAB-mT-ZY9"/>
                                                                 </constraints>
                                                             </stackView>
@@ -587,7 +592,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hsd-w5-3hG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="623" y="942"/>
+            <point key="canvasLocation" x="622" y="854"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Vxt-2q-GG7">

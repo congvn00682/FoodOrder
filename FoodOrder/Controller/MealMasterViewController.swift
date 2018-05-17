@@ -9,13 +9,16 @@
 import UIKit
 import CoreData
 
-class MealMasterViewController: UITableViewController {
+class MealMasterViewController: UITableViewController, UISearchBarDelegate {
 
-    var fetchResultsController = DataServices.shared.fetchedResultsController
     
+    var filtered: [Meal] = []
+    var fetchResultsController = DataServices.shared.fetchedResultsController
+    @IBOutlet weak var searchMeal: UISearchBar!
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchResultsController.delegate = self
+        searchMeal.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,21 +28,29 @@ class MealMasterViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return fetchResultsController.sections?.count ?? 0
-    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return fetchResultsController.sections![section].numberOfObjects
+        if searchMeal.text != "" {
+            return filtered.count
+        }
+        guard let meals = fetchResultsController.fetchedObjects else { return 0 }
+        return meals.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MealTableViewCell
-        let meal = fetchResultsController.object(at: indexPath)
-        configureCell(cell, withMeal: meal)
+        
+        if searchMeal.text != "" {
+            let meal = filtered[indexPath.row]
+            cell.nameLabel.text = meal.name
+            cell.photo.image = meal.photo as? UIImage
+            cell.ratingControl.rating = Int(meal.rating)
+        }
+        else {
+            let meal = fetchResultsController.object(at: indexPath)
+            configureCell(cell, withMeal: meal)
+        }
         return cell
     }
     
@@ -61,6 +72,7 @@ class MealMasterViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
         if editingStyle == .delete {
             let context = fetchResultsController.managedObjectContext
             context.delete(fetchResultsController.object(at: indexPath))
@@ -72,6 +84,16 @@ class MealMasterViewController: UITableViewController {
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        guard let fetchedObjects = fetchResultsController.fetchedObjects else { return }
+        filtered = fetchedObjects.filter({ (filtered) -> Bool in
+            let foldingNameMealEntity = filtered.name?.lowercased().folding(options: .diacriticInsensitive, locale: Locale.current)
+            let foldingSearchText = searchText.lowercased().folding(options: .diacriticInsensitive, locale: Locale.current)
+            return (foldingNameMealEntity ?? "").contains(foldingSearchText)
+        })
+        tableView.reloadData()
     }
 
 }
