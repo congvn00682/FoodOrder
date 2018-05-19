@@ -9,12 +9,33 @@
 import UIKit
 
 class MealDetailViewController: UIViewController, UIImagePickerControllerDelegate, UITextFieldDelegate, UITextViewDelegate, UINavigationControllerDelegate {
-
+    
     var meal: Meal?
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var ratingControl: RatingControl!
     @IBOutlet weak var descriptions: UITextView!
+    
+    var isCheckName: Bool = false {
+        didSet {
+            if isCheckName {
+                isError = !((DataServices.shared.fetchedResultsController.fetchedObjects?.filter{ $0.name == nameTextField.text ?? "" })?.count == 0)
+                print(isError)
+                isCheckName = false
+            }
+        }
+    }
+    
+    var isError: Bool = false {
+        didSet {
+            if isError {
+                let alertController = UIAlertController(title: "FBI Waring", message: "Please enter name other!!!", preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "OK", style: .destructive, handler: nil))
+                self.present(alertController, animated: true, completion: nil)
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         nameTextField.delegate = self
@@ -24,7 +45,7 @@ class MealDetailViewController: UIViewController, UIImagePickerControllerDelegat
         imageView.clipsToBounds = true
         configureMeal()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -32,7 +53,15 @@ class MealDetailViewController: UIViewController, UIImagePickerControllerDelegat
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         nameTextField.resignFirstResponder()
-        descriptions.resignFirstResponder()
+        
+        return true
+    }
+  
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if (text == "\n") {
+            textView.resignFirstResponder()
+            return false
+        }
         return true
     }
     
@@ -77,7 +106,6 @@ class MealDetailViewController: UIViewController, UIImagePickerControllerDelegat
             descriptions.text = selectedMeal.descriptions
         }
     }
-    
     
     @IBAction func cancel(_ sender: Any) {
         navigationController?.popViewController(animated: true)

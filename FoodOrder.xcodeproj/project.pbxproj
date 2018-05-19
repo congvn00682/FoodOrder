@@ -18,9 +18,13 @@
 		4D6762ED20A6B0D300E6EBFC /* MealMasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6762EC20A6B0D300E6EBFC /* MealMasterViewController.swift */; };
 		4D6762EF20A6B0E900E6EBFC /* MealDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6762EE20A6B0E900E6EBFC /* MealDetailViewController.swift */; };
 		7231700C890BDF325C162809 /* Pods_FoodOrder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8964C3A93C1A91F3C0C48B5 /* Pods_FoodOrder.framework */; };
+		796BBD8620AD81B80057CB99 /* SlideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796BBD8520AD81B80057CB99 /* SlideMenuViewController.swift */; };
+		7976E33E20AE680800811B68 /* Extension+UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7976E33D20AE680800811B68 /* Extension+UIImageView.swift */; };
+		7976E34020AE749200811B68 /* InfoUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7976E33F20AE749200811B68 /* InfoUserViewController.swift */; };
 		799BB98F20AA7799002CE58B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799BB98E20AA7799002CE58B /* User.swift */; };
 		79AEE2A120A91BB300B1D2BA /* LoginFacebookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AEE2A020A91BB300B1D2BA /* LoginFacebookViewController.swift */; };
 		79CF7BB820AAC8A700EC419E /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CF7BB720AAC8A700EC419E /* RegisterViewController.swift */; };
+		79FF204920AECB3A00730A6A /* TakePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FF204820AECB3A00730A6A /* TakePhotoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,9 +42,13 @@
 		4D6762EC20A6B0D300E6EBFC /* MealMasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealMasterViewController.swift; sourceTree = "<group>"; };
 		4D6762EE20A6B0E900E6EBFC /* MealDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailViewController.swift; sourceTree = "<group>"; };
 		7900A9E720A73375003F2F83 /* FoodOrder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FoodOrder.entitlements; sourceTree = "<group>"; };
+		796BBD8520AD81B80057CB99 /* SlideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideMenuViewController.swift; sourceTree = "<group>"; };
+		7976E33D20AE680800811B68 /* Extension+UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIImageView.swift"; sourceTree = "<group>"; };
+		7976E33F20AE749200811B68 /* InfoUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoUserViewController.swift; sourceTree = "<group>"; };
 		799BB98E20AA7799002CE58B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		79AEE2A020A91BB300B1D2BA /* LoginFacebookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFacebookViewController.swift; sourceTree = "<group>"; };
 		79CF7BB720AAC8A700EC419E /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		79FF204820AECB3A00730A6A /* TakePhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakePhotoViewController.swift; sourceTree = "<group>"; };
 		BDE082C98CA660DEC96E9073 /* Pods-FoodOrder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodOrder.release.xcconfig"; path = "Pods/Target Support Files/Pods-FoodOrder/Pods-FoodOrder.release.xcconfig"; sourceTree = "<group>"; };
 		F8964C3A93C1A91F3C0C48B5 /* Pods_FoodOrder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodOrder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -95,6 +103,9 @@
 		4D6762E320A6B05C00E6EBFC /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				796BBD8520AD81B80057CB99 /* SlideMenuViewController.swift */,
+				7976E33F20AE749200811B68 /* InfoUserViewController.swift */,
+				79FF204820AECB3A00730A6A /* TakePhotoViewController.swift */,
 				4D6762EC20A6B0D300E6EBFC /* MealMasterViewController.swift */,
 				4D6762EE20A6B0E900E6EBFC /* MealDetailViewController.swift */,
 				79AEE2A020A91BB300B1D2BA /* LoginFacebookViewController.swift */,
@@ -117,6 +128,7 @@
 			children = (
 				4D6762E620A6B07E00E6EBFC /* DataServices.swift */,
 				799BB98E20AA7799002CE58B /* User.swift */,
+				7976E33D20AE680800811B68 /* Extension+UIImageView.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -268,13 +280,17 @@
 			files = (
 				4D6762E920A6B08C00E6EBFC /* RatingControl.swift in Sources */,
 				79CF7BB820AAC8A700EC419E /* RegisterViewController.swift in Sources */,
+				796BBD8620AD81B80057CB99 /* SlideMenuViewController.swift in Sources */,
 				4D6762E720A6B07E00E6EBFC /* DataServices.swift in Sources */,
 				79AEE2A120A91BB300B1D2BA /* LoginFacebookViewController.swift in Sources */,
 				4D6762ED20A6B0D300E6EBFC /* MealMasterViewController.swift in Sources */,
 				4D6762CC20A6B03400E6EBFC /* AppDelegate.swift in Sources */,
+				7976E34020AE749200811B68 /* InfoUserViewController.swift in Sources */,
 				799BB98F20AA7799002CE58B /* User.swift in Sources */,
 				4D6762D420A6B03400E6EBFC /* FoodOrder.xcdatamodeld in Sources */,
 				4D6762EF20A6B0E900E6EBFC /* MealDetailViewController.swift in Sources */,
+				7976E33E20AE680800811B68 /* Extension+UIImageView.swift in Sources */,
+				79FF204920AECB3A00730A6A /* TakePhotoViewController.swift in Sources */,
 				4D6762EB20A6B0C100E6EBFC /* MealTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -6,11 +6,11 @@
 //  Copyright © 2018 Zindo Yamate. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
-class User: NSObject, NSCoding {
+public class User: NSObject, NSCoding {
     
-        struct Key {
+    struct Key {
         static let name = "Name"
         static let image = "Image"
         static let email = "Email"

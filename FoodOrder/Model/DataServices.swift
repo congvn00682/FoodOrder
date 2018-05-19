@@ -14,6 +14,12 @@ class DataServices {
     
     static let shared: DataServices = DataServices()
     
+    func getUserInfo(complete: (User)->Void) {
+        let decoded = UserDefaults.standard.object(forKey: "user") as! Data
+        guard let user = NSKeyedUnarchiver.unarchiveObject(with: decoded) as? User else { return }
+        complete(user)
+    }
+    
     func getDataLogin() {
         if FBSDKAccessToken.current() != nil {
             // lay gia tri (id: co the hien thi anh, name, email) cua fb sau khi login thanh cong
@@ -41,12 +47,12 @@ class DataServices {
                     UserDefaults.standard.synchronize()
                     
                     
-//                    // set rootView. move to new screen
-//                    let application = UIApplication.shared.delegate as! AppDelegate
-//                    let confirmStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//                    let showConfirmVC = confirmStoryboard.instantiateViewController(withIdentifier: "MasterViewController") as! MasterViewController
-//                    let navigationController = UINavigationController(rootViewController: showConfirmVC)
-//                    application.window?.rootViewController = navigationController
+                    // set rootView. move to new screen
+                    let application = UIApplication.shared.delegate as! AppDelegate
+                    let confirmStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                    let showConfirmVC = confirmStoryboard.instantiateViewController(withIdentifier: "SlideMenuViewController") as! SlideMenuViewController
+                    let navigationController = UINavigationController(rootViewController: showConfirmVC)
+                    application.window?.rootViewController = navigationController
                     
                     
                 }
@@ -54,7 +60,7 @@ class DataServices {
         }
     }
     
-    func getUserInfo(complete: (User)-> Void) {
+    func getUsersInfo(complete: (User)-> Void) {
         let decoded = UserDefaults.standard.object(forKey: "user") as! Data
         guard let user = NSKeyedUnarchiver.unarchiveObject(with: decoded) as? User else { return }
         complete(user)
