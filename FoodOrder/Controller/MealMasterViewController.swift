@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 class MealMasterViewController: UITableViewController, UISearchBarDelegate {
-
+    
     
     var filtered: [Meal] = []
     var fetchResultsController = DataServices.shared.fetchedResultsController
@@ -19,16 +19,21 @@ class MealMasterViewController: UITableViewController, UISearchBarDelegate {
         super.viewDidLoad()
         fetchResultsController.delegate = self
         searchMeal.delegate = self
+        
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     // MARK: - Table view data source
-
-
+    
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if searchMeal.text != "" {
             return filtered.count
@@ -36,7 +41,7 @@ class MealMasterViewController: UITableViewController, UISearchBarDelegate {
         guard let meals = fetchResultsController.fetchedObjects else { return 0 }
         return meals.count
     }
-
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MealTableViewCell
@@ -95,7 +100,7 @@ class MealMasterViewController: UITableViewController, UISearchBarDelegate {
         })
         tableView.reloadData()
     }
-
+    
 }
 extension MealMasterViewController: NSFetchedResultsControllerDelegate {
     
@@ -108,7 +113,9 @@ extension MealMasterViewController: NSFetchedResultsControllerDelegate {
         case .insert:
             tableView.insertRows(at: [newIndexPath!], with: .fade)
         case .delete:
+            
             tableView.deleteRows(at: [indexPath!], with: .fade)
+            
         case .update:
             configureCell(tableView.cellForRow(at: indexPath!) as! MealTableViewCell, withMeal: anObject as! Meal)
         case .move:
@@ -122,11 +129,4 @@ extension MealMasterViewController: NSFetchedResultsControllerDelegate {
     }
 }
 
-extension String {
-    var toInt: Int? {
-        get {
-            return self != "" ? Int(self) : nil
-        }
-    }
-}
 

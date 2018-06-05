@@ -14,7 +14,7 @@
         <!--Login Facebook View Controller-->
         <scene sceneID="Ssl-Gz-rVV">
             <objects>
-                <viewController id="xp7-Rt-Cqf" customClass="LoginFacebookViewController" customModule="FoodOrder" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginForm" id="xp7-Rt-Cqf" customClass="LoginFacebookViewController" customModule="FoodOrder" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MB2-TI-b8T"/>
                         <viewControllerLayoutGuide type="bottom" id="ph0-6o-tLd"/>
@@ -118,6 +118,7 @@
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="koZ-tE-Irk">
                                                                         <rect key="frame" x="0.0" y="10" width="343" height="39"/>
+                                                                        <color key="backgroundColor" red="0.98818871492374405" green="1" blue="0.81511231319575828" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <state key="normal" title="Login"/>
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FtG-JN-AGq">
@@ -225,6 +226,9 @@
                         <viewLayoutGuide key="safeArea" id="Xc3-gq-dpI"/>
                     </view>
                     <navigationItem key="navigationItem" id="WAl-jw-AVY"/>
+                    <connections>
+                        <outlet property="loginButton" destination="koZ-tE-Irk" id="PIp-QY-Vut"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KOE-PU-S03" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -445,23 +449,23 @@
             <objects>
                 <viewController id="0CB-Ek-9S7" customClass="MealDetailViewController" customModule="FoodOrder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="elm-QL-hZo">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="MeT-rb-rlX">
-                                <rect key="frame" x="16" y="84" width="343" height="561"/>
+                                <rect key="frame" x="16" y="40" width="343" height="541"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="R7t-th-2n2">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="56"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="54"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Meal:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N07-gM-1yq">
-                                                <rect key="frame" x="0.0" y="18" width="103" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="17" width="103" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter new Food" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lt3-tB-zvA">
-                                                <rect key="frame" x="103" y="13" width="240" height="30"/>
+                                                <rect key="frame" x="103" y="12" width="240" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -472,7 +476,7 @@
                                         </constraints>
                                     </stackView>
                                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="8Us-KL-HED">
-                                        <rect key="frame" x="19.5" y="61" width="304" height="304"/>
+                                        <rect key="frame" x="28.5" y="59" width="286" height="286"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="8Us-KL-HED" secondAttribute="height" multiplier="1:1" id="VAE-48-Y1P"/>
@@ -482,7 +486,7 @@
                                         </connections>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="vGm-VL-ken">
-                                        <rect key="frame" x="0.0" y="370" width="343" height="191"/>
+                                        <rect key="frame" x="0.0" y="350" width="343" height="191"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Descriptions:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qcX-dU-FAo">
                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="25"/>
@@ -798,7 +802,7 @@
                                             <color key="titleColor" red="0.092129857809999993" green="0.40841809070000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="logOutAccount:" destination="qbk-Jf-YdZ" eventType="touchUpInside" id="Pql-LJ-N6o"/>
+                                            <action selector="logOutAccount:" destination="qbk-Jf-YdZ" eventType="touchUpInside" id="qVB-xu-aSd"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -878,6 +882,6 @@
         <image name="icons8-menu" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ePR-FN-sBy"/>
+        <segue reference="5TC-Ly-hGa"/>
     </inferredMetricsTieBreakers>
 </document>

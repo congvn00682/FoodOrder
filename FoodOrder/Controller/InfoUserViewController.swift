@@ -38,12 +38,20 @@ class InfoUserViewController: UIViewController, UIImagePickerControllerDelegate,
         // Dispose of any resources that can be recreated.
     }
     
+    
     @IBAction func selectedPhoto(_ sender: UITapGestureRecognizer) {
     }
     
     
     
     @IBAction func logOutAccount(_ sender: Any) {
+        UserDefaults.standard.removeObject(forKey: "user")
+        // set new root when logout
+        let application = UIApplication.shared.delegate as! AppDelegate
+        let confirmStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let showConfirmVC = confirmStoryboard.instantiateViewController(withIdentifier: "LoginForm") as! LoginFacebookViewController
+        let navigationController = UINavigationController(rootViewController: showConfirmVC)
+        application.window?.rootViewController = navigationController
     }
     
 }

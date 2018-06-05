@@ -12,10 +12,13 @@ import FBSDKLoginKit
 
 class LoginFacebookViewController: UIViewController {
 
+    
     let fbLoginManager: FBSDKLoginManager = FBSDKLoginManager()
+    
+    @IBOutlet weak var loginButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        loginButton.layer.cornerRadius = 10
     }
 
     override func didReceiveMemoryWarning() {
